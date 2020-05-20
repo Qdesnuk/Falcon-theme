@@ -1,3 +1,14 @@
-<?php get_header(); // вставка header.php ?>
-Привет мир!
-<?php get_footer(); // вставка footer.php ?>
+<?php
+//get_header();
+ 
+if ( have_posts() ) : 
+    while ( have_posts() ) : the_post();
+        the_content();
+    endwhile;
+else :
+    _e( 'Sorry, no posts matched your criteria.', 'falcon' );
+endif;
+ 
+//get_sidebar();
+//get_footer();
+?>
